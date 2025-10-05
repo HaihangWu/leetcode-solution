@@ -19,6 +19,4 @@ class Solution(object):
 
             return mem[k]
 
-        print(mem)
-
         return dfs(n)
