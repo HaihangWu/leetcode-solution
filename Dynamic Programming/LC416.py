@@ -19,6 +19,7 @@ class Solution(object):
                 return 0
             if i < 0:
                 return 0
+
             if mem[i][j] != -1:
                 return mem[i][j]
 
