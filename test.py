@@ -1,15 +1,8 @@
-import numpy as np
-import cv2  # Or use PIL if you're using it for image loading
+import torch
 
-# Load the image (ensure it's in grayscale or color as needed)
-image = cv2.imread(r'C:\Users\hthh1\Downloads\old\depth000000_ADT.png', cv2.IMREAD_GRAYSCALE)  # Load image in grayscale (if you want color, omit cv2.IMREAD_GRAYSCALE)
+points1 = torch.tensor([[0.0, 0.0], [1.0, 1.0]])
+points2 = torch.tensor([[0.0, 0.0], [-1.0, -1.0]])
 
-# Convert to float32 for more precision if needed
-image = image.astype(np.float32)
-
-# Get the min and max values
-min_val = np.min(image)
-max_val = np.max(image)
-
-print(f"Min value: {min_val}")
-print(f"Max value: {max_val}")
+# Compute Euclidean distance (p=2.0)
+distances = torch.cdist(points1, points2, p=2.0)
+print(distances)
